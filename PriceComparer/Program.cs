@@ -1,4 +1,5 @@
 global using FastEndpoints;
+global using FluentValidation;
 using FastEndpoints.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

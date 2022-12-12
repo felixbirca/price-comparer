@@ -14,11 +14,13 @@ namespace PriceComparer.Endpoints
 
         public override void Configure()
         {
+            AllowAnonymous();
             Post("/api/offer/create");
         }
 
         public override async Task HandleAsync(CreateOffer request, CancellationToken cancellationToken)
         {
+            ThrowIfAnyErrors();
             await _offersService.Create(request, cancellationToken);
             await SendOkAsync();
         }
