@@ -20,7 +20,7 @@ builder.Services.AddAuthentication(options =>
     options.Audience = "https://eastlevant.com";
 });
 builder.Services.AddCors(o => o.AddPolicy(name: "Default", 
-                     policy => { policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader(); }));
+                     policy => { policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<PriceComparerContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddScoped<IOfferTypesService, OfferTypesService>();
