@@ -29,7 +29,6 @@ builder.Services.AddScoped<IOffersService, OffersService>();
 
 var app = builder.Build();
 app.UseCors("Default");
-app.UseCustomMiddleware(); 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseFastEndpoints();
