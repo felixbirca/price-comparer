@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using PriceComparer.Application;
 using PriceComparer.Infrastucture;
-using PriceComparer.Middleware;
 
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddFastEndpoints();
