@@ -2,8 +2,8 @@
 {
     public class OfferType : BaseEntity
     {
-        public string UserId { get; set; }
-        public string Name { get; set; }
-        public ICollection<Offer> Services { get; set; }
+        public string UserId { get; set; } = string.Empty; 
+        public string Name { get; set; } = string.Empty;
+        public ICollection<Offer> Services { get; set; } = new List<Offer>();
     }
 }
