@@ -32,5 +32,5 @@ jobs:
     - name: Deploy to app service
       uses: azure/webapps-deploy@v2
       with:
-        app-name: price-comparer-padlab3
+        app-name: api-price-comparer-padlab3
         package: './price-comparer'
