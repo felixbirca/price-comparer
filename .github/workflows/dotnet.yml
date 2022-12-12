@@ -23,14 +23,17 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration release
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.1
+    - name: Publish
+      run: dotnet publish -c Release -o './price-comparer'
+    - name: Login via Azure CLI
+      uses: azure/login@v1
       with:
-        # Artifact name
-        name: master
-        # A file, directory or wildcard pattern that describes what to upload
-        path: .
-        # The desired behavior if no files are found using the provided path.
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Deploy to app service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: price-comparer
+        package: './price-comparer'
