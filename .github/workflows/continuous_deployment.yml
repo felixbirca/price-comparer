@@ -9,8 +9,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -23,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test
     - name: Publish
       run: dotnet publish -c Release -o './price-comparer'
     - name: Login via Azure CLI
