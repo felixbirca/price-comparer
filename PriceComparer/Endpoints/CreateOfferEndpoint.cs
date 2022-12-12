@@ -1,4 +1,5 @@
-﻿using PriceComparer.Application;
+﻿using FastEndpoints;
+using PriceComparer.Application;
 using PriceComparer.Application.DTOs.Offer;
 
 namespace PriceComparer.Endpoints
