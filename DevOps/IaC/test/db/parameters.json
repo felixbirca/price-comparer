@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "allowAzureIps": {
+            "value": false
+        },
+        "enableADS": {
+            "value": false
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "serverName": {
+            "value": "padlab3-sql-server"
+        },
+        "enableVA": {
+            "value": false
+        },
+        "useVAManagedIdentity": {
+            "value": false
+        },
+        "serverTags": {
+            "value": {}
+        },
+        "administratorLogin": {
+            "value": "felixbirca"
+        },
+        "administratorLoginPassword": {
+            "value": null
+        }
+    }
+}
