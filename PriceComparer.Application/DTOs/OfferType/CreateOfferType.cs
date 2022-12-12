@@ -7,8 +7,8 @@ namespace PriceComparer.Application.DTOs.OfferType
     public class CreateOfferType
     {
         [FromClaim(ClaimType = ClaimTypes.NameIdentifier)]
-        public string UserId { get; set; }
-        public string Name { get; set; }
+        public string UserId { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
     }
 
     public class CreateOfferTypeValidator : Validator<CreateOfferType>
