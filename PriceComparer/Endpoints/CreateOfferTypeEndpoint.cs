@@ -15,6 +15,7 @@ namespace PriceComparer.Endpoints
 
         public override void Configure()
         {
+            AllowAnonymous();
             Post("/api/offer-types/create");
         }
 
