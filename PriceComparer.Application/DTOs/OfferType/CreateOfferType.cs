@@ -6,7 +6,7 @@ namespace PriceComparer.Application.DTOs.OfferType
 {
     public class CreateOfferType
     {
-        [FromClaim(ClaimType = ClaimTypes.NameIdentifier)]
+        //[FromClaim(ClaimType = ClaimTypes.NameIdentifier)]
         public string UserId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
     }

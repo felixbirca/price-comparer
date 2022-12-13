@@ -32,4 +32,29 @@ app.UseAuthorization();
 app.UseFastEndpoints();
 app.UseOpenApi();
 app.UseSwaggerUi3(s => s.ConfigureDefaults());
+await using var scope = app.Services.CreateAsyncScope();
+using var db = scope.ServiceProvider.GetService<PriceComparerContext>();
+await DoWithRetryAsync(async () => { await db.Database.MigrateAsync(); }, TimeSpan.FromSeconds(2), 10);
 app.Run();
+
+static async Task DoWithRetryAsync(Func<Task> action, TimeSpan sleepPeriod, int tryCount = 3)
+{
+    if (tryCount <= 0)
+        throw new ArgumentOutOfRangeException(nameof(tryCount));
+
+    while (true)
+    {
+        try
+        {
+            await action();
+            return;
+        }
+        catch
+        {
+            if (--tryCount == 0)
+                throw;
+            await Task.Delay(sleepPeriod);
+        }
+    }
+}
+
