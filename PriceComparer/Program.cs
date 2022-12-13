@@ -34,6 +34,7 @@ app.UseOpenApi();
 app.UseSwaggerUi3(s => s.ConfigureDefaults());
 await using var scope = app.Services.CreateAsyncScope();
 using var db = scope.ServiceProvider.GetService<PriceComparerContext>();
+// small comment
 await DoWithRetryAsync(async () => { await db.Database.MigrateAsync(); }, TimeSpan.FromSeconds(2), 10);
 app.Run();
 
